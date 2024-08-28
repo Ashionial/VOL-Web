@@ -24,21 +24,21 @@ export interface ExecPost200Response {
      * @type {string}
      * @memberof ExecPost200Response
      */
-    message: string;
+    output: string;
     /**
      * 
      * @type {string}
      * @memberof ExecPost200Response
      */
-    err: string;
+    error: string;
 }
 
 /**
  * Check if a given object implements the ExecPost200Response interface.
  */
 export function instanceOfExecPost200Response(value: object): value is ExecPost200Response {
-    if (!('message' in value) || value['message'] === undefined) return false;
-    if (!('err' in value) || value['err'] === undefined) return false;
+    if (!('output' in value) || value['output'] === undefined) return false;
+    if (!('error' in value) || value['error'] === undefined) return false;
     return true;
 }
 
@@ -52,8 +52,8 @@ export function ExecPost200ResponseFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'message': json['message'],
-        'err': json['err'],
+        'output': json['output'],
+        'error': json['error'],
     };
 }
 
@@ -63,8 +63,8 @@ export function ExecPost200ResponseToJSON(value?: ExecPost200Response | null): a
     }
     return {
         
-        'message': value['message'],
-        'err': value['err'],
+        'output': value['output'],
+        'error': value['error'],
     };
 }
 

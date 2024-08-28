@@ -12,7 +12,7 @@ export default function Page() {
     const { data, error, isLoading } = useSWR(param, fetcher);
     if (error) return <div>Failed to load</div>;
     if (isLoading) return <div>Loading...</div>;
-    const output = data?.message;
+    const output = data?.output;
     if (!output) {
         return <div>No data available</div>;
     }

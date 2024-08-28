@@ -35,7 +35,7 @@ function FetchAndRender(
 ) {
   const fetcher: Fetcher<ExecPost200Response> = (param: string) => api.execPost({ cmd: param });
   const { data, error, isLoading } = useSWR(props.command, fetcher);
-  const decoded = atob(data?.message || "");
+  const decoded = atob(data?.output || "");
   return (
     <>
       {data ? <div className="w-full whitespace-pre-wrap">{decoded}</div> : null}
