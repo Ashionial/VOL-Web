@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { YamlPostOperationRequest } from "@/lib/api";
+import { api } from "@/lib/utils";
 import { useRef } from "react";
-import { yamlPost, YamlPostParams0 } from "@/lib/api";
 
 export default function Upload() {
   const fileInput = useRef<HTMLInputElement>(null);
@@ -20,13 +21,13 @@ export default function Upload() {
             reader.onload = function () {
               console.log(reader.result);
 
-              const param: YamlPostParams0 = {
-                body: {
+              const param: YamlPostOperationRequest = {
+                yamlPostRequest: {
                   filename: file.name,
                   content: reader.result?.toString() || "",
                 },
               };
-              const r = yamlPost(param);
+              const r = api.yamlPost(param);
             };
             reader.onerror = function (error) {
               console.log("Error: ", error);

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "bunx @openapitools/openapi-generator-cli generate -i vol.openapi.json -o lib/api --generator-name typescript-fetch"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -17,6 +18,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "swr": "^2.2.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
