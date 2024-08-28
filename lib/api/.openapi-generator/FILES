@@ -1,7 +1,7 @@
-.openapi-generator-ignore
 apis/DefaultApi.ts
 apis/index.ts
 index.ts
+models/ExecPost200Response.ts
 models/K8sCommandPostRequest.ts
 models/YamlPostRequest.ts
 models/index.ts

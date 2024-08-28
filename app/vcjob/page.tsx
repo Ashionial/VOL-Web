@@ -7,7 +7,7 @@ import { api } from '@/lib/utils';
 export default function Page() {
     const fetcher: Fetcher<ExecPost200Response> = (param: ExecPostRequest) => api.execPost(param);
     const param: ExecPostRequest = {
-        cmd: 'kubectl get no -o json',
+        cmd: 'kubectl get vcjob -o json',
     };
     const { data, error, isLoading } = useSWR(param, fetcher);
     if (error) return <div>Failed to load</div>;
@@ -18,20 +18,14 @@ export default function Page() {
     }
     const decoded = atob(output);
     const json = JSON.parse(decoded);
-    // json path
-    for (const item of json.items) {
-        console.log(item.metadata.labels);
-    }
+    console.log(json);
 
     return <div className='flex flex-wrap'>{json.items.map((item: any, index: number) => (
         <div className="p-4 border border-gray-300 rounded-md m-4" key={index}>
+            <div>{item.apiVersion}</div>
             <div>{item.metadata.name}</div>
-            <div>{item.status.addresses.map((address: any) => address.address).join(', ')}</div>
-            <div>{item.status.conditions.map((condition: any) => condition.type).join(', ')}</div>
-            <div>{item.status.nodeInfo.osImage}</div>
-            <div>{item.status.nodeInfo.kernelVersion}</div>
-            <div>{item.status.nodeInfo.kubeletVersion}</div>
-            <div>{item.status.nodeInfo.containerRuntimeVersion}</div>
+            <div>{item.metadata.namespace}</div>
+            <div>{item.status.state.lastTransitionTime}</div>
         </div >
     ))}</div>;
 }
