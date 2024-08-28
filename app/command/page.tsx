@@ -8,6 +8,7 @@ export default function Command() {
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5">
       <Input type="text" placeholder="Namespace" ref={namespace} />
+      <Input type="text" placeholder="Namespace" ref={namespace} />
     </div>
   );
 }
