@@ -19,10 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="dark w-full h-screen">
         <div className="flex">
-          <div className="w-1/12 border-r border-gray-200 min-w-max">
+          <div className="w-1/12 border-r border-gray-200">
             <Navbar />
           </div>
-          <div className="grow">{children}</div>
+          <div className="w-11/12">{children}</div>
         </div>
       </body>
     </html>
