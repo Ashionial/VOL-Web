@@ -18,14 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="dark w-full h-screen">
+      <body>
         <div className="flex">
-          <div className="w-1/12 border-r border-gray-200">
+          <div className="w-1/12 border-r text-white bg-gray-700 border-gray-900">
             <Navbar />
           </div>
-          <div className="w-11/12">{children}</div>
+          <div className="w-11/12 gradient-background">{children}</div>
         </div>
       </body>
-    </html>
+    </html >
   );
 }
