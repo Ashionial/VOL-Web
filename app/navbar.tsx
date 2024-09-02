@@ -10,7 +10,7 @@ export default function Navbar() {
       <Link className="w-full flex justify-center items-center p-4 rounded-lg bg-gray-900" href="/pod">Pod</Link>
       <Link className="w-full flex justify-center items-center p-4 rounded-lg bg-gray-900" href="/vcjob">Vcjob</Link>
       <Link href="/command">Command</Link>
-      <Link href="/upload">upload</Link>
+      <Link href="/docker">Docker</Link>
     </div>
   );
 }
