@@ -24,7 +24,7 @@ export default function Page() {
     }
 
     return <div className='flex flex-wrap'>{json.items.map((item: any, index: number) => (
-        <div className="p-4 border border-gray-300 rounded-md m-4" key={index}>
+        <div className="node" key={index}>
             <div>{item.metadata.name}</div>
             <div>{item.status.addresses.map((address: any) => address.address).join(', ')}</div>
             <div>{item.status.conditions.map((condition: any) => condition.type).join(', ')}</div>

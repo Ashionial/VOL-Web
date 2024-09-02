@@ -1,5 +1,6 @@
 "use client";
 
+import "../globals.css";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ExecPost200Response, ExecPostRequest } from "@/lib/api";
@@ -20,7 +21,9 @@ export default function Command() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Input type="text" value={command} onChange={(e) => setCommand(e.target.value)} />
+        <div className="my-input">
+          <Input type="text" className="rounded-xl" value={command} onChange={(e) => setCommand(e.target.value)} />
+        </div>
         <Button onClick={handleSubmit}>Submit</Button>
       </div>
       <div className="mt-4">

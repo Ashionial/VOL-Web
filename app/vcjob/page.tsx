@@ -21,7 +21,7 @@ export default function Page() {
     console.log(json);
 
     return <div className='flex flex-wrap'>{json.items.map((item: any, index: number) => (
-        <div className="p-4 border border-gray-300 rounded-md m-4" key={index}>
+        <div className="vcjob" key={index}>
             <div>{item.apiVersion}</div>
             <div>{item.metadata.name}</div>
             <div>{item.metadata.namespace}</div>
