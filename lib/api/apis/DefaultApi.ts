@@ -28,6 +28,11 @@ import {
     YamlPostRequestToJSON,
 } from '../models/index';
 
+export interface DockerPostRequest {
+    imageName?: string;
+    dockerfile?: string;
+}
+
 export interface ExecPostRequest {
     cmd?: string;
 }
@@ -52,6 +57,57 @@ export interface YamlPostOperationRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
+
+    /**
+     * 
+     * dockerfile
+     */
+    async dockerPostRaw(requestParameters: DockerPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['imageName'] != null) {
+            formParams.append('imageName', requestParameters['imageName'] as any);
+        }
+
+        if (requestParameters['dockerfile'] != null) {
+            formParams.append('dockerfile', requestParameters['dockerfile'] as any);
+        }
+
+        const response = await this.request({
+            path: `/docker`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * 
+     * dockerfile
+     */
+    async dockerPost(requestParameters: DockerPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.dockerPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * 

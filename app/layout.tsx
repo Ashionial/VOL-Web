@@ -18,12 +18,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="default-src https: http: 'self'; script-src https: http: 'unsafe-inline';"
-        />
-      </head>
       <body className="dark w-full h-screen">
         <div className="flex">
           <div className="w-1/12 border-r border-gray-200">
