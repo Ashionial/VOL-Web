@@ -7,6 +7,125 @@
     },
     "tags": [],
     "paths": {
+        "/manual": {
+            "post": {
+                "summary": "114.132.190.117:8081/manual",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "description": "it could receive several files",
+                                        "example": [],
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "cmd": {
+                                        "description": "it can only receive one command",
+                                        "example": "python hello2.py",
+                                        "type": "string"
+                                    },
+                                    "imageName": {
+                                        "description": "it must have imageName",
+                                        "example": "voltest:volcano",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "file",
+                                    "cmd",
+                                    "imageName"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "buildOutput": {
+                                            "type": "string"
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "buildOutput",
+                                        "error"
+                                    ]
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "OK"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/exec": {
+            "post": {
+                "summary": "CMD",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "cmd": {
+                                        "example": "",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "output": {
+                                            "type": "string"
+                                        },
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "output",
+                                        "error"
+                                    ]
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "OK"
+                    }
+                },
+                "security": []
+            }
+        },
         "/yaml": {
             "post": {
                 "summary": "Upload Yaml",
@@ -41,7 +160,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -50,7 +169,123 @@
                                 }
                             }
                         },
-                        "headers": {}
+                        "headers": {},
+                        "x-apifox-name": "Success"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/k8s/pod": {
+            "get": {
+                "summary": "114.132.190.117:8081/k8s/pod",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "podName",
+                        "in": "query",
+                        "description": "default: all",
+                        "required": true,
+                        "example": "coredns-6799fbcd5-vttvq",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "in": "query",
+                        "description": "default: default",
+                        "required": true,
+                        "example": "kube-system",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "Success"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/docker": {
+            "post": {
+                "summary": "dockerfile",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "imageName": {
+                                        "example": "",
+                                        "type": "string"
+                                    },
+                                    "dockerfile": {
+                                        "example": "",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "Success"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/k8s/node": {
+            "get": {
+                "summary": "node",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "Success"
                     }
                 },
                 "security": []
@@ -99,7 +334,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -108,22 +343,101 @@
                                 }
                             }
                         },
-                        "headers": {}
+                        "headers": {},
+                        "x-apifox-name": "Success"
                     }
                 },
                 "security": []
             }
         },
-        "/k8s/node": {
+        "/k8s/log": {
             "get": {
-                "summary": "node",
+                "summary": "114.132.190.117:8081/k8s/log",
                 "deprecated": false,
                 "description": "",
                 "tags": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "podName",
+                        "in": "query",
+                        "description": "default: all",
+                        "required": true,
+                        "example": "svclb-traefik-1e958ce9-bx82x",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "in": "query",
+                        "description": "default: default",
+                        "required": true,
+                        "example": "kube-system",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        },
+                                        "output": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "error",
+                                        "output"
+                                    ]
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "OK"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/k8s/vcjob": {
+            "get": {
+                "summary": "114.132.190.117:8081/k8s/vcjob",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "jobName",
+                        "in": "query",
+                        "description": "default: all",
+                        "required": true,
+                        "example": "voltest",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "namespace",
+                        "in": "query",
+                        "description": "default: default",
+                        "required": true,
+                        "example": "default",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -132,7 +446,8 @@
                                 }
                             }
                         },
-                        "headers": {}
+                        "headers": {},
+                        "x-apifox-name": "Success"
                     }
                 },
                 "security": []
@@ -158,7 +473,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -167,7 +482,51 @@
                                 }
                             }
                         },
-                        "headers": {}
+                        "headers": {},
+                        "x-apifox-name": "Success"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/k8s/yaml": {
+            "post": {
+                "summary": "114.132.190.117:8081/k8s/yaml",
+                "deprecated": false,
+                "description": "",
+                "tags": [],
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "required": [
+                                    "file"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        },
+                        "headers": {},
+                        "x-apifox-name": "Success"
                     }
                 },
                 "security": []
@@ -193,7 +552,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Success",
+                        "description": "",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -202,57 +561,8 @@
                                 }
                             }
                         },
-                        "headers": {}
-                    }
-                },
-                "security": []
-            }
-        },
-        "/exec": {
-            "post": {
-                "summary": "CMD",
-                "deprecated": false,
-                "description": "",
-                "tags": [],
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "cmd": {
-                                        "example": "",
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "output": {
-                                            "type": "string"
-                                        },
-                                        "error": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": [
-                                        "output",
-                                        "error"
-                                    ]
-                                }
-                            }
-                        },
-                        "headers": {}
+                        "headers": {},
+                        "x-apifox-name": "Success"
                     }
                 },
                 "security": []
