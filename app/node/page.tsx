@@ -23,7 +23,7 @@ export default function Page() {
         console.log(item.metadata.labels);
     }
 
-    return <div className='flex flex-wrap'>{json.items.map((item: any, index: number) => (
+    return <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'>{json.items.map((item: any, index: number) => (
         <div className="node" key={index}>
             <div>{item.metadata.name}</div>
             <div>{item.status.addresses.map((address: any) => address.address).join(', ')}</div>

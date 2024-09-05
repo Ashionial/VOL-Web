@@ -15,15 +15,15 @@ export default function Page() {
   const [hide, setHide] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen">
-      <div className="grid w-full max-w-sm items-center gap-1.5">
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="grid w-full max-w-sm items-center gap-2">
         <div>file</div>
-        <Input type="file" ref={fileInput} />
+        <Input type="file" className="rounded-xl border-2 border-gray-400 my-input" ref={fileInput} />
         <div>cmd</div>
-        <Input type="text" value={cmd} onChange={(e) => setCmd(e.target.value)} />
+        <Input type="text" className="rounded-xl border-2 border-gray-400 my-input" value={cmd} onChange={(e) => setCmd(e.target.value)} />
         <div>imageName</div>
-        <Input type="text" value={imageName} onChange={(e) => setImageName(e.target.value)} />
-        <Button className="hover:bg-gray-900" onClick={
+        <Input type="text" className="rounded-xl border-2 border-gray-400 my-input" value={imageName} onChange={(e) => setImageName(e.target.value)} />
+        <Button className="mt-5 rounded-2xl hover:text-blue-500 my-button" onClick={
           (e) => {
             e.preventDefault();
             setHide(true);

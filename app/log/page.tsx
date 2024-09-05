@@ -19,16 +19,16 @@ export default function Page() {
 
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen">
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Input type="text" value={podName} onChange={(e) => setPodName(e.target.value)} />
-        <Input type="text" value={namespace} onChange={(e) => setNamespace(e.target.value)} />
-        <Button className="hover:bg-gray-900" onClick={handleSubmit}>Submit</Button>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="grid w-full max-w-sm items-center gap-2">
+        <Input type="text" className="rounded-xl border-2 border-gray-400 my-input" value={podName} onChange={(e) => setPodName(e.target.value)} />
+        <Input type="text" className="rounded-xl border-2 border-gray-400 my-input" value={namespace} onChange={(e) => setNamespace(e.target.value)} />
+        <Button className="mt-5 rounded-2xl hover:text-blue-500 my-button" onClick={handleSubmit}>Submit</Button>
       </div>
       <div className="mt-4">
         {hide ? <FetchAndRender podName={podName} namespace={namespace} /> : <></>}
       </div>
-    </div>
+    </div >
   );
 }
 

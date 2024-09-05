@@ -20,11 +20,9 @@ export default function Command() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <div className="my-input">
-          <Input type="text" className="rounded-xl" value={command} onChange={(e) => setCommand(e.target.value)} />
-        </div>
-        <Button onClick={handleSubmit}>Submit</Button>
+      <div className="grid w-full max-w-sm items-center gap-2">
+        <Input type="text" className="rounded-xl border-2 border-gray-400 my-input" value={command} onChange={(e) => setCommand(e.target.value)} />
+        <Button className="mt-5 rounded-2xl hover:text-blue-500 my-button" onClick={handleSubmit}>Submit</Button>
       </div>
       <div className="mt-4">
         {hide ? <FetchAndRender command={command} /> : <></>}

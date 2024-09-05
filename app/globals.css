@@ -44,7 +44,22 @@
 
   }
 
-  .my-input {
-    /* @apply shadow-xl shadow-black; */
+  .test {
+    @apply bg-red-500
   }
+
+  .my-input:hover {
+    @apply border-gray-500
+  }
+
+  .my-input:focus {
+    @apply border-blue-500
+  }
+
+  .my-button {
+    @apply shadow-xl
+  }
+
+  .my-buttom:hover {}
+
 }
