@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { DockerPostRequest, YamlPostOperationRequest } from "@/lib/api";
+import { DockerPostRequest, K8sYamlPostRequest, YamlPostOperationRequest } from "@/lib/api";
 import { api } from "@/lib/utils";
 import { useRef, useState } from "react";
 import Editor from "@/components/editor";
@@ -19,11 +19,12 @@ export default function Upload() {
         className="border max-w-min"
         onClick={() => {
           console.log(code);
-          const req:DockerPostRequest = {
-            imageName: "",
-            dockerfile: code,
+          // with file name
+
+          const req: K8sYamlPostRequest = {
+            file: new Blob([code], { type: 'text/yaml' }),
           };
-          api.dockerPost(req).then((res) => {
+          api.k8sYamlPost(req).then((res) => {
             console.log(res);
           }).catch((err) => {
             // readable stream
