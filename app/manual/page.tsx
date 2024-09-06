@@ -45,7 +45,7 @@ function FetchAndRender(props: { fileInput: React.RefObject<HTMLInputElement>, c
   return (
     <>
       <div className="border border-gray-300 rounded-md p-4">
-        {data ? <div className="w-full whitespace-pre-wrap">log: {data.buildOutput}</div> : null}
+        {data ? <div className="w-full h-96 whitespace-pre-wrap overflow-auto">log: {data.buildOutput}</div> : null}
       </div >
     </>
   );

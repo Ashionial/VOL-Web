@@ -42,7 +42,7 @@ function FetchAndRender(
   return (
     <>
       <div className="border border-gray-300 rounded-md p-4">
-        {data ? <div className="w-full whitespace-pre-wrap">log: {decoded}</div> : null}
+        {data ? <div className="w-full h-96 whitespace-pre-wrap overflow-auto my-scroll">log: {decoded}</div> : null}
       </div >
     </>
   );

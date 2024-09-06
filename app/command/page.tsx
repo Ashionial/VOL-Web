@@ -39,7 +39,7 @@ function FetchAndRender(
   const decoded = atob(data?.output || "");
   return (
     <>
-      {data ? <div className="w-full whitespace-pre-wrap">{decoded}</div> : null}
+      {data ? <div className="w-full h-96 whitespace-pre-wrap overflow-auto">{decoded}</div> : null}
     </>
   );
 }
