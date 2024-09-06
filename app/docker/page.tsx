@@ -11,12 +11,12 @@ export default function Upload() {
   const fileInput = useRef<HTMLInputElement>(null);
   const [code, setCode] = useState("");
   return (
-    <div className="grid w-full items-center gap-1.5">
+    <div className="w-full items-center gap-1.5">
       <div className="h-full">
         <Editor onChange={setCode} value={code} />
       </div>
       <Button
-        className="mt-5 rounded-2xl hover:text-blue-500 my-button"
+        className="mt-4 mr-10 float-right max-w-min rounded-2xl bg-blue-500 hover:text-blue-500 my-blue-button "
         onClick={() => {
           console.log(code);
           // with file name
