@@ -16,7 +16,7 @@ export default function Upload() {
         <Editor onChange={setCode} value={code} />
       </div>
       <Button
-        className="border max-w-min"
+        className="mt-5 rounded-2xl hover:text-blue-500 my-button"
         onClick={() => {
           console.log(code);
           // with file name

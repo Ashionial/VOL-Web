@@ -11,7 +11,7 @@ export default function Navbar() {
       <Link className="navbar" href="/pod">Pod</Link>
       <Link className="navbar" href="/vcjob">Vcjob</Link>
       <Link className="navbar" href="/command">Command</Link>
-      <Link className="navbar" href="/docker">Docker</Link>
+      <Link className="navbar" href="/docker">Yaml</Link>
       <Link className="navbar" href="/log">Log</Link>
       <Link className="navbar" href="/manual">Manual</Link>
     </div>

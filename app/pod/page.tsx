@@ -23,7 +23,7 @@ export default function Page() {
         console.log(item.metadata.labels);
     }
 
-    return <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'>{json.items.map((item: any, index: number) => (
+    return <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5'>{json.items.map((item: any, index: number) => (
         <div className="pod" key={index}>
             <div>{item.metadata.name}</div>
             <div>{item.metadata.namespace}</div>

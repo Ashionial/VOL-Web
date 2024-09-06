@@ -62,4 +62,16 @@
 
   .my-buttom:hover {}
 
+  .scroll-text {
+    overflow: hidden
+      /* width: 200px; */
+      /* white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box; */
+  }
+
+  .scroll-text:hover {
+    overflow: scroll;
+  }
+
 }

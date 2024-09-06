@@ -20,9 +20,9 @@ export default function Page() {
     const json = JSON.parse(decoded);
     console.log(json);
 
-    return <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6'>{json.items.map((item: any, index: number) => (
+    return <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'>{json.items.map((item: any, index: number) => (
         <div className="vcjob" key={index}>
-            <div>{item.apiVersion}</div>
+            <div className="">{item.apiVersion}</div>
             <div>{item.metadata.name}</div>
             <div>{item.metadata.namespace}</div>
             <div>{item.status.state.lastTransitionTime}</div>
